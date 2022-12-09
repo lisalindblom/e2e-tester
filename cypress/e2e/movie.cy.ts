@@ -10,6 +10,7 @@ describe("movieApp form", () => {
     cy.get("input").type("Shrek").should("have.value", "Shrek");
     cy.get("button").click();
     cy.get("div.movie").should("have.length", 10);
+    cy.get("h3").should("have.length", 10);
   });
   it("should display error message when wrong input", () => {
     cy.visit("http://localhost:1234");
@@ -18,7 +19,7 @@ describe("movieApp form", () => {
     cy.get("p").contains("Inga sökresultat att visa");
     cy.get("div.movie").should("have.length", 0);
   });
-  it("should display error messageif empty input", () => {
+  it("should display error message if empty input", () => {
     cy.visit("http://localhost:1234");
     cy.get("input").clear();
     cy.get("button").click();
